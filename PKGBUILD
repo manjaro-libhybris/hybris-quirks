@@ -2,7 +2,7 @@
 
 pkgname=hybris-quirks
 pkgver=1
-pkgrel=1
+pkgrel=2
 pkgdesc="hybris quirks"
 arch=('aarch64')
 url="https://github.com/manjaro-libhybris/hybris-quirks"
@@ -18,7 +18,8 @@ source=('boot-wlan.sh'
         'wcnss-enable.service'
         'zz-manjaro.sh'
         'zz-wayland.sh'
-        '20-qt-force-gles')
+        '20-qt-force-gles'
+        'machine-info')
 sha256sums=('a3a50eb7edad196a75888ee14c0a6968cb8bcbffe70a3a21c321b0b22a1418b9'
             '02f5bb2686f306df7ad2bb9cda99b0925c3e8c4e9d55691e228dc48bf0ab3eb8'
             'facd370b53d8f963e2bc9c63a137c20fc4132eb239f7d2776dc989823d1726a3'
@@ -29,7 +30,8 @@ sha256sums=('a3a50eb7edad196a75888ee14c0a6968cb8bcbffe70a3a21c321b0b22a1418b9'
             '2c82e335e91fb2bd158e99c4abc4df6541057bff35a67bec23450827cd62e29c'
             'efee70f8e58f115420eca8b97d6a755610c0b03165da13170062c60aa51b7b98'
             '3a75a56b983e6af8b83b1b29a2f48e714e41f290ebb7e07b9fb7619a34663525'
-            '35ab3dd336887538c8a20b7ba30995db24bf63f562744443d9fa8cb9d3ecce60')
+            '35ab3dd336887538c8a20b7ba30995db24bf63f562744443d9fa8cb9d3ecce60'
+            'd147c7f34bf22c96b4ae12127885559ac4c52f70e9e632e0eb8b963eb2b32d95')
 
 package() {
   mkdir -p ${pkgdir}/usr/bin/
@@ -49,4 +51,6 @@ package() {
   install -m755 zz-manjaro.sh "$pkgdir"/etc/profile.d
   install -m755 zz-wayland.sh "$pkgdir"/etc/profile.d
   install -m755 20-qt-force-gles "$pkgdir"/etc/profile.d
+
+  install -m644 machine-info "$pkgdir"/etc/
 }
