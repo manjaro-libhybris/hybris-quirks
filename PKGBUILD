@@ -2,9 +2,9 @@
 
 pkgname=hybris-quirks
 pkgver=2
-pkgrel=1
+pkgrel=2
 pkgdesc="hybris quirks"
-arch=('aarch64')
+arch=('aarch64' 'x86_64')
 url="https://github.com/manjaro-libhybris/hybris-quirks"
 license=('BSD-3')
 depends=('systemd' 'bash')
@@ -16,8 +16,10 @@ source=('boot-wlan.sh'
         'ipa-enable.service'
         'lmk-disable.service'
         'wcnss-enable.service'
+        'gnome-session-unfailed.service'
         'zz-manjaro.sh'
         'zz-wayland.sh'
+        'gnome-session-not-failed'
         'machine-info')
 sha256sums=('a3a50eb7edad196a75888ee14c0a6968cb8bcbffe70a3a21c321b0b22a1418b9'
             '02f5bb2686f306df7ad2bb9cda99b0925c3e8c4e9d55691e228dc48bf0ab3eb8'
@@ -27,8 +29,10 @@ sha256sums=('a3a50eb7edad196a75888ee14c0a6968cb8bcbffe70a3a21c321b0b22a1418b9'
             'fe14145d55572b232ba735e412824b181e6db96e72c71023c5cdea4308f5aaa9'
             '493d9ca491099b50577d1bc0a1c3cf3d8e7841b603f6ecb282a69c6d0e7797ec'
             '2c82e335e91fb2bd158e99c4abc4df6541057bff35a67bec23450827cd62e29c'
+            '241dc6ecce72aaf448494998f98b23620d0b0cefd6dadf6d41658cfed131c667'
             '6e61d44eaa0357f5297b8331ba77e3f05da755274f894d40ab60c58ba7a88b1b'
             '3a75a56b983e6af8b83b1b29a2f48e714e41f290ebb7e07b9fb7619a34663525'
+            '22ea73e9fdb56ca473d7f8c33248c30bbf0954378c5190cacd70d34fb179d708'
             'd147c7f34bf22c96b4ae12127885559ac4c52f70e9e632e0eb8b963eb2b32d95')
 
 package() {
@@ -44,10 +48,14 @@ package() {
   install -m644 ipa-enable.service "$pkgdir"/usr/lib/systemd/system
   install -m644 lmk-disable.service "$pkgdir"/usr/lib/systemd/system
   install -m644 wcnss-enable.service "$pkgdir"/usr/lib/systemd/system
+  install -m644 gnome-session-unfailed.service "$pkgdir"/usr/lib/systemd/system
 
   mkdir -p ${pkgdir}/etc/profile.d/
   install -m755 zz-manjaro.sh "$pkgdir"/etc/profile.d
   install -m755 zz-wayland.sh "$pkgdir"/etc/profile.d
 
   install -m644 machine-info "$pkgdir"/etc/
+
+  mkdir -p $(pkgdir)/usr/lib/
+  install -m755 gnome-session-not-failed "$pkgdir"/usr/lib/
 }
