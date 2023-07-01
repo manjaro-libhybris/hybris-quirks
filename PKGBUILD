@@ -37,7 +37,7 @@ sha256sums=('a3a50eb7edad196a75888ee14c0a6968cb8bcbffe70a3a21c321b0b22a1418b9'
             '3a75a56b983e6af8b83b1b29a2f48e714e41f290ebb7e07b9fb7619a34663525'
             '22ea73e9fdb56ca473d7f8c33248c30bbf0954378c5190cacd70d34fb179d708'
             'd147c7f34bf22c96b4ae12127885559ac4c52f70e9e632e0eb8b963eb2b32d95'
-            '6d79a6fb74c705e25fb98f46c5a47e5be917a74fe199f578ac222c157a9aef33')
+            '8f64a814fe68c9a0ed1300635af7964afdc0fdc3c5097c68de1d2831825ecf1e')
 
 package() {
   mkdir -p ${pkgdir}/usr/bin/
