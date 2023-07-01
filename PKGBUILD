@@ -1,6 +1,8 @@
 # Maintainer: Bardia Moshiri <fakeshell@bardia.tech>
 
 pkgname=hybris-quirks
+conflicts=('pinephone-manjaro-tweaks')
+provides=('pinephone-manjaro-tweaks')
 pkgver=2
 pkgrel=3
 pkgdesc="hybris quirks"
